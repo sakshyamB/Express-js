@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Home</title>
+    <script src="http://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <form>
-     Home: <input type="text" placeholder="Enter name">
-     <button type="submit"> Submit </button>
+    <form action="/Submit" method="POST" class="flex flex-col">
+     Name: <input class="border-2 border-black" name="name" type="text" placeholder="Enter name">
+     Location: <input class="border-2 border-black" name="location" type="text" placeholder="Enter Location">
+     Price: <input class="border-2 border-black" name="price" type="text" placeholder="Enter price">
+     Rating: <input class="border-2 border-black" name="rating" type="text" placeholder="Enter Rating">
+     <button class="border-2 mt-2 border-black w-fit" type="submit"> Submit </button>
     </form>
 </body>
 </html>

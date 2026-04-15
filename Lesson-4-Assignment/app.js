@@ -1,5 +1,5 @@
 const express = require('express');
-const uerRouter = require('./routes/userRouter');
+const {hostRouter} = require('./routes/hostRouter');
 const userRouter = require('./routes/userRouter');
 
 const app = express();
@@ -10,7 +10,9 @@ app.use('/', (req,res,next)=>{
     console.log(req.url, req.method);
     next();
 })
+app.use(express.urlencoded());
 app.use(userRouter);
+app.use(hostRouter);
 
 const PORT = 3000;
 app.listen(PORT , ()=>{
