@@ -6,7 +6,15 @@ exports.AddHome = (req,res,next)=>{
 
 exports.Submit = (req,res,next)=>{
     console.log(req.body);
-    HotelDetail.push(req.body);
+    const newHotel = {
+    id: HotelDetail.length + 1,
+    name: req.body.name,
+    location: req.body.location,
+    price: req.body.price,
+    rating: req.body.rating
+}
+
+    HotelDetail.push(newHotel);
     res.render('Submit');
 }
 
@@ -20,4 +28,12 @@ exports.ShowHome = (req,res,next)=>{
 
 exports.NotFound = (req,res,next) =>{
     res.render('NotFound');
+}
+
+exports.SingleHome = (req,res,next) =>{
+    const RequestedId = req.params.id;
+    const HotelId = HotelDetail.find(
+        home => home.id == RequestedId
+    );
+    res.render('SingleHome', {HotelId});
 }

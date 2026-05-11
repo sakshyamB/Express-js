@@ -5,5 +5,6 @@ const userRouter = express.Router();
 
 userRouter.get('/', HomeControls.Home)
 userRouter.get('/ShowHome', HomeControls.ShowHome)
+userRouter.get('/ShowHome/:id', HomeControls.SingleHome)
 
 module.exports = userRouter;
