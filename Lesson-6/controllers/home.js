@@ -11,7 +11,8 @@ exports.Submit = (req,res,next)=>{
     name: req.body.name,
     location: req.body.location,
     price: req.body.price,
-    rating: req.body.rating
+    rating: req.body.rating,
+    favourite: false
 }
 
     HotelDetail.push(newHotel);
@@ -36,4 +37,20 @@ exports.SingleHome = (req,res,next) =>{
         home => home.id == RequestedId
     );
     res.render('SingleHome', {HotelId});
+}
+
+exports.AddFavourites = (req,res,next)=>{
+    const RequestedId = req.params.id;
+    const HotelId = HotelDetail.find(
+        home => home.id == RequestedId
+    );
+    HotelId.favourite = !HotelId.favourite ;
+    res.redirect('/ShowHome')
+}
+
+exports.Favouritespage = (req,res,next)=>{
+    const FavouriteHotels = HotelDetail.filter(
+        home => home.favourite == true
+    )
+    res.render('Favouritespage', {FavouriteHotels})
 }
