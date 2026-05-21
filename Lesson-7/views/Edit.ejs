@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://cdn.tailwindcss.com"></script>
+</head>
+<body>
+     <form action="/Update/<%=hotel.id%>" method="POST" class="flex flex-col">
+        <h1 class="font-italic text-purple-200">Edit Hotel Details</h1>
+     Name: <input required class="border-2 border-black" name="name" value="<%= hotel.name %>" type="text" placeholder="Enter name">
+     Location: <input required class="border-2 border-black" name="location" value="<%= hotel.location %>" type="text" placeholder="Enter Location">
+     Price: <input required class="border-2 border-black" name="price" value="<%= hotel.price %>" type="text" placeholder="Enter price">
+     Rating: <input required class="border-2 border-black" name="rating" value="<%= hotel.rating %>" type="text" placeholder="Enter Rating">
+     <button class="border-2 mt-2 bg-blue-100 border-black w-fit" type="submit"> Update </button>
+    </form>
+</body>
+</html>
