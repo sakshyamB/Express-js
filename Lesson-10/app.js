@@ -1,6 +1,6 @@
 const express = require('express');
 const RoutesManager = require('./routes/RoutesManager');
-const { connectDB } = require('./db/db');
+const connectDB  = require('./db/db');
 
 const app = express();
 
@@ -10,10 +10,9 @@ app.set('views', 'views');
 app.use(express.urlencoded({ extended: true }));
 app.use(RoutesManager);
 
-const PORT = 3000;
+connectDB();
 
-connectDB().then(() => {
+const PORT = 3000;
     app.listen(PORT, () => {
         console.log(`App running on http://localhost:${PORT}`);
     });
-});
