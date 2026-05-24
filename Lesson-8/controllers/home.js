@@ -1,4 +1,3 @@
-const HotelDetail = [];
 const userStore = [];
 
 const HotelModel = require('../models/hotelModel');

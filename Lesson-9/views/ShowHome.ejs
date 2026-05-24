@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hotels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <h1 class="text-3xl font-bold text-center mt-6 text-gray-800">
+        Hotel List
+    </h1>
+
+    <div class="max-w-4xl mx-auto mt-6 space-y-4">
+
+        <% hotels.forEach(hotel => { %>
+
+            <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition">
+
+                <h2 class="text-xl font-semibold text-gray-800">
+                    <%= hotel.name %>
+                </h2>
+
+                <p class="text-gray-600 mt-2">
+                    📍 <%= hotel.location %>
+                </p>
+
+                <p class="text-gray-600">
+                    💰 Price: ₹<%= hotel.price %>
+                </p>
+
+                <p class="text-gray-600">
+                    ⭐ Rating: <%= hotel.rating %>
+                </p>
+
+                <a href="/Delete/<%= hotel._id %>">
+                    <button class="bg-red-200 p-1 m-2">Delete</button>
+                </a>
+
+                <a href="/Edit/<%= hotel._id %>">
+                    <button class="bg-green-200 m-2 p-1"> Edit </button>
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+</html>
