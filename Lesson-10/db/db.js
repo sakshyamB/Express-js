@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = "mongodb+srv://root:MONGODB@cluster07.fnp4ofz.mongodb.net/hoteldb?appName=cluster07";
+const url = "mongodb+srv://root:<password>@cluster07.fnp4ofz.mongodb.net/hoteldb?appName=cluster07";
 
 const connectDB = async () => {
     try {
