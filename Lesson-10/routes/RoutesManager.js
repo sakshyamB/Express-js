@@ -2,8 +2,6 @@ const express = require('express');
 const HomeControlls = require('../controllers/home')
 const RoutesManager = express.Router();
 
-RoutesManager.get('/', HomeControlls.Login)
-
 RoutesManager.use('/Home',HomeControlls.Home )
 
 RoutesManager.get('/AddHome',HomeControlls.AddHome)
