@@ -3,28 +3,23 @@ const userStore = [];
 const Hotel = require('../models/hotelModel');
 
 exports.Login = (req,res,next)=>{
-res.render('Login');
+res.render('Login', {isloggedin : false});
 }
 
 exports.Home = (req,res,next)=>{
     console.log(req.body);
-    const userinfo ={
-        username : req.body.username,
-        password : req.body.password,
-    }
-    userStore.push(userinfo);
-    const lastUser = userStore[userStore.length - 1]
-    res.render('Home', {username: lastUser.username});
+    isloggedin = req.session.isloggedin;
+    res.render('Home', {isloggedin: isloggedin});
 }
 
 exports.AddHome = (req, res, next)=>{
-    res.render('AddHome');
+    res.render('AddHome', {isloggedin: req.session.isloggedin});
 }
 
 exports.ShowHome = async (req, res) => {
     try {
         const hotels = await Hotel.find();
-        res.render("ShowHome", { hotels });
+        res.render("ShowHome", { hotels, isloggedin: req.session.isloggedin });
 
     } catch (err) {
         console.log(err);
@@ -42,7 +37,7 @@ exports.Submit = async (req, res) => {
             image: req.body.image
         });
 
-        res.redirect("/ShowHome");
+        res.redirect("/ShowHome", {isloggedin: req.session.isloggedin});
 
     } catch (err) {
         console.log(err);
@@ -53,7 +48,7 @@ exports.Submit = async (req, res) => {
 exports.DeleteHome = async (req, res) => {
     try {
         await Hotel.findByIdAndDelete(req.params.id);
-        res.redirect("/ShowHome");
+        res.redirect("/ShowHome", {isloggedin: req.session.isloggedin});
 
     } catch (err) {
         console.log(err);
@@ -63,7 +58,7 @@ exports.DeleteHome = async (req, res) => {
 exports.EditHome = async (req, res) => {
     try {
         const hotel = await Hotel.findById(req.params.id);
-        res.render("Edit", { hotel });
+        res.render("Edit", { hotel, isloggedin: req.session.isloggedin });
 
     } catch (err) {
         console.log(err);
@@ -79,9 +74,15 @@ exports.UpdateHome = async (req, res) => {
             rating: req.body.rating
         });
 
-        res.redirect("/ShowHome");
+        res.redirect("/ShowHome", {isloggedin: req.session.isloggedin});
 
     } catch (err) {
         console.log(err);
     }
 };
+
+exports.PostLogin = (req,res,next) =>{
+  req.session.isloggedin = true;
+  console.log(req);
+  res.redirect('/');
+}

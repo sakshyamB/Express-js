@@ -2,7 +2,7 @@ const express = require('express');
 const HomeControlls = require('../controllers/home')
 const RoutesManager = express.Router();
 
-RoutesManager.use('/Home',HomeControlls.Home )
+RoutesManager.use('/',HomeControlls.Home )
 
 RoutesManager.get('/AddHome',HomeControlls.AddHome)
 

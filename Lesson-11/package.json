@@ -1,5 +1,5 @@
 {
-  "name": "lesson-8",
+  "name": "lesson-11",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "ejs": "^5.0.2",
+    "ejs": "^6.0.1",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
-    "mongodb": "^7.2.0",
-    "mongoose": "^9.6.2",
-    "mysql2": "^3.22.3",
+    "mongoose": "^9.7.0",
     "nodemon": "^3.1.14"
   }
 }

@@ -8,9 +8,12 @@
 </head>
 <body>
     <nav class="flex bg-yellow-200">
+        <% if(isloggedin){ %>
         <a href="/AddHome"><li class=" mx-5 list-none"> Add Home </li> </a>
         <a href="/ShowHome"><li class="list-none"> Show Home</li> </a>
+        <% } %>
+        <a href="/Login"><li class=" mx-5 list-none"> Login</li> </a>
     </nav>
-    <h1 class="text-3xl"> Welcome <%= username %> </h1>
+    <h1 class="text-3xl"> Welcome </h1>
 </body>
 </html>
