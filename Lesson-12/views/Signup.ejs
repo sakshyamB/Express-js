@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Please Sign up below:</h1>
+    <% if (errors && errors.length > 0) { %>
+    <div class="alert alert-danger">
+        <ul>
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    </div>
+<% } %>
+    <form action="/Signup" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Enter your username" required> <br>
+        <label for="email"> Email:</label>
+        <input type="text" name="email" placeholder="Enter email" required> <br>
+        <label for="password"> Password:</label>
+        <input type="password" name="password" placeholder="Enter password" required> <br>
+        <label for="c-password"> Confirm Password:</label>
+        <input type="password" name="c-password" placeholder="Confirm password" required> <br>
+        <label for="user-type">user-type:</label>
+        <select name="user-type">
+            <option value="host">host</option>
+            <option value="guest">guest</option>
+        </select>
+        <br>
+        <input type="checkbox" name="terms&conditions"> I comply with all terms and conditions.
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
